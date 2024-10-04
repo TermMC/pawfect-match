@@ -1,5 +1,2 @@
-
-
 export default function Home() {
-  
-}
+  }
