@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ---------------- Navbar and burger menu ------------------ */
+nav {
+    width: 100%;
+    height: 5em;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    align-items: center;
+    flex-flow: row nowrap;
+    color: #000000;
+    border-bottom: 2px solid #b8b6b6;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+.title{
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.desktop_menu{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    display: none;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    z-index: inherit;
+}
+
+.burger-menu {
+    height: 100%;
+    width: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+.burger-bar {
+    width: 35px;
+    height: 5px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 0.5em;
+    margin: 3px;
+}
+
+.menu {
+    width: 50%;
+    height: 100%;
+    background-color: rgb(235, 238, 243);
+    position: absolute;
+    margin-left: 50%;
+    top: 0;
+    border-left: #000000;
+    z-index: -1;
+}
+    
+
+.mobile_menu{
+    margin-top: 4em;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+/* ------------- sliding menu ------------------ */
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: inherit;
+}
+
+/* ----- animations--------- */
+/* clicked */
+.burger-bar.clicked:nth-child(1){
+    transform: translate(0, 11px) rotate(-45deg);
+    transition: ease-out 0.2s;
+}
+
+.burger-bar.clicked:nth-child(2){
+    opacity: 0;;
+    transition: ease-out 0.2s;
+}
+
+.burger-bar.clicked:nth-child(3){
+    transform: translate(0, -11px) rotate(45deg);
+    transition: ease-out 0.2s;
+}
+
+/* unclicked */
+.burger-bar.unclicked {
+    transform: rotate(0) translate(0);
+    opacity: 100%;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s;
+}
+
+@media screen and (min-width: 525px) {
+    .burger-menu{
+        display: none;
+    }
+    .burger-bar{
+        display: none;
+    }
+    .desktop_menu{
+        display: flex;
+    }
+    
+}
+
+.footer_banner{
+display: flex;
+height: 4em;
+width: 100%;
+background-color: azure;
+position: absolute;
+}
