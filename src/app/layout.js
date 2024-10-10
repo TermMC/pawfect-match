@@ -1,7 +1,8 @@
-import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./components/navBar";
-
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 export const metadata = {
   title: "Pawfect Match",
