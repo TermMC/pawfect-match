@@ -1,0 +1,53 @@
+.profileContainer {
+    height: 50vh;
+    border-radius: 25px 25px 0 0;
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    background: white;
+    width: 100vw;
+}
+
+.headerContainer {
+    margin-top: 1.5em;
+    margin-left: 2em;
+}
+
+.headerContainer h1 {
+    font-weight: bold;
+    margin-bottom: 0.2em;
+}
+
+.headerContainer h2 {
+    font-weight: 500;
+}
+
+.tagContainer {
+    width: 87%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.petDescription {
+    width: 87%;
+    margin: auto;
+    margin-top: 1em;
+}
+
+.petDescription a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2em;
+    margin: auto;
+    width: 60%;
+    justify-content: center;
+    margin-top: 1em;
+}

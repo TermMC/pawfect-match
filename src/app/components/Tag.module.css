@@ -1,0 +1,23 @@
+.tagContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid #D6D6D6;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.tagTitle {
+    color: #4B3D3D;
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin-bottom: 0.5em;
+}
+
+.tagDescription {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
