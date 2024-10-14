@@ -26,7 +26,7 @@ const Navbar = () => {
     }
 
     return(
-        <div style={{width: '100%', height: '100%'}}>
+        <div style={{width: '100%'}}>
             <nav>
               <div className="title"><Image src="/images/Logo.svg" width={200} height={80} /></div>
               <Link href="/profile" className="desktop_menu">Profile</Link>
