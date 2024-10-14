@@ -1,0 +1,33 @@
+.shelterContainer {
+    width: 87%;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    align-items: center;
+    gap: 1em;
+    margin: 1.5em auto auto;
+}
+
+.shelterImage{
+    border-radius: 10px;
+}
+
+.shelterDetails {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.shelterDetails h1 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.shelterDetails h2 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.rightArrow {
+    display: flex;
+    justify-content: flex-end;
+}
