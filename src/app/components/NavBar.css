@@ -14,9 +14,9 @@ nav {
     align-items: center;
     flex-flow: row nowrap;
     color: #000000;
-    border-bottom: 2px solid #b8b6b6;
     text-decoration: none;
     z-index: 1000;
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,.2);
 }
 
 .title{
