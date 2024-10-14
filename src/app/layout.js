@@ -2,7 +2,13 @@ import "./globals.css";
 import Navbar from "./components/navBar";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import { Poppins } from '@next/font/google';
 config.autoAddCss = false;
+
+const poppins = Poppins({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700', '800', '900'],
+})
 
 export const metadata = {
   title: "Pawfect Match",
@@ -12,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className={poppins.className}>
         <Navbar />
         <main>{children}</main>
         <footer></footer>
