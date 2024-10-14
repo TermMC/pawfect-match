@@ -2,10 +2,9 @@
     width: 87%;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    margin: auto;
     align-items: center;
     gap: 1em;
-    margin-top: 1.5em;
+    margin: 1.5em auto auto;
 }
 
 .shelterImage{
