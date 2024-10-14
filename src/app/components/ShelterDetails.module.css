@@ -1,7 +1,7 @@
 .shelterContainer {
     width: 87%;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 8fr 1fr;
     align-items: center;
     gap: 1em;
     margin: 1.5em auto auto;

@@ -18,9 +18,13 @@
     flex-direction: column;
 }
 
+.petImage {
+    margin: 0 auto auto;
+}
+
 .headerContainer {
-    margin-top: 1.5em;
-    margin-left: 2em;
+    width: 87%;
+    margin: 1.5em auto auto;
 }
 
 .headerContainer h1 {
