@@ -122,11 +122,3 @@ nav {
     }
     
 }
-
-.footer_banner{
-display: flex;
-height: 4em;
-width: 100%;
-background-color: azure;
-position: absolute;
-}
