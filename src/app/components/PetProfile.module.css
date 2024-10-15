@@ -19,7 +19,7 @@
 }
 
 .petImage {
-    margin: 0 auto auto;
+    margin: 0 auto 0 auto;
 }
 
 .headerContainer {
@@ -29,26 +29,26 @@
 
 .headerContainer h1 {
     font-weight: bold;
-    margin-bottom: 0.2em;
+    font-size: 2rem;
 }
 
 .headerContainer h2 {
     font-weight: 500;
+    font-size: 1rem;
 }
 
 .tagContainer {
     width: 87%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin: auto;
     gap: 1em;
-    margin-top: 1em;
+    margin: 1em auto auto;
 }
 
 .petDescription {
     width: 87%;
-    margin: auto;
-    margin-top: 1em;
+    margin: 1em auto auto;
+    font-size: 0.8rem;
 }
 
 .petDescription a {
@@ -60,8 +60,7 @@
     display: flex;
     flex-wrap: nowrap;
     gap: 2em;
-    margin: auto;
     width: 60%;
     justify-content: center;
-    margin-top: 1em;
+    margin: 1em auto auto;
 }
