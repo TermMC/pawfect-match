@@ -37,8 +37,6 @@ textarea{
     cursor: pointer;
 }
 
-
-
 /* main layout of the page and containers */
 .profilePageHolder{
     position: relative;
@@ -121,6 +119,13 @@ main{
     align-items: center;
     z-index: -10;
 }
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
 
 
 /* body {

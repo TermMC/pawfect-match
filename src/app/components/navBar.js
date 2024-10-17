@@ -1,6 +1,6 @@
 "use client"
 import React, {useState} from "react";
-import './styles.css'
+import './NavBar.css'
 import Image from "next/image";
 import Link from "next/link";
 
@@ -29,6 +29,7 @@ const Navbar = () => {
         <div style={{width: '100%'}}>
             <nav>
               <div className="title"><Image src="/images/Logo.svg" width={200} height={80} alt="Pawfect Math logo" /></div>
+              <Link href="/" className="desktop_menu">Home</Link>
               <Link href="/profile" className="desktop_menu">Profile</Link>
               <Link href="/messages" className="desktop_menu">Messages</Link>
               <Link href="/matches" className="desktop_menu">Matches</Link>
@@ -41,6 +42,7 @@ const Navbar = () => {
 
             <div className={menu_class}>
                 <ul className="mobile_menu">
+                    <li><Link href="/">Home</Link></li>
                     <li><Link href="/profile">Profile</Link></li>
                     <li><Link href="/messages">Messages</Link></li>
                     <li><Link href="/matches">Matches</Link></li>
