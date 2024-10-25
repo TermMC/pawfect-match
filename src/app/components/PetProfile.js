@@ -1,6 +1,6 @@
 import Tag from './Tag';
 import Image from 'next/image';
-import styles from "./PetProfile.module.css";
+import './PetProfile.css';
 import ShelterContainer from "./ShelterDetails";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,23 +16,27 @@ export default async function PetProfile() {
       .limit(1)
       .single();
   return (
-    <div key={pet.pet_id} className={styles.pageContainer}>
-      <Image className={styles.petImage} src="https://place.dog/500/450" width="500" height="450" alt="Pet Image"></Image>
-      <div className={styles.profileContainer}>
-        <div className={styles.headerContainer}>
+    <div key={pet.pet_id} className="pageContainer">
+      <div className="petImageContainer">
+        <Image className="petImage" src="https://place.dog/500/550" width="500" height="550" alt="Pet Image"></Image>
+      </div>
+      <div className="profileContainer">
+        <div className="headerContainer">
           <h1>{pet.name}</h1>
           <h2>{pet.breed}</h2>
         </div>
-        <div className={styles.tagContainer}>
+        <div className="tagContainer">
           <Tag title="Age" description={`${pet.age}`} />
           <Tag title="Gender" description={`${pet.gender}`} />
           <Tag title="Vaccinated" description={pet.vaccinated ? 'Yes' : 'No'} />
         </div>
         <ShelterContainer />
-        <div className={styles.petDescription}>
+        <div className="petDescription">
           <p>{pet.description}<a href="/profile">Read more...</a></p>
         </div>
-        <div className={styles.buttonContainer}>
+      </div>
+      <div className="buttonSectionContainer">
+        <div className="buttonContainer">
         <FontAwesomeIcon icon={faSquareXmark} size="5x" style={{color: "#B32828"}} />
         <FontAwesomeIcon icon={faSquareCheck} size="5x" style={{color: "#0E5C1F"}}/>
         </div>

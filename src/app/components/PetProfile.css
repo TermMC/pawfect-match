@@ -1,0 +1,101 @@
+body {
+    z-index: -10;
+    position: relative;
+}
+
+main {
+    z-index: -10;
+    position: relative;
+}
+
+.pageContainer {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+    z-index: -10;
+    box-sizing: border-box;
+}
+
+.profileContainer {
+    height: 50%;
+    border-radius: 25px 25px 0 0;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: auto;
+}
+
+.petImageContainer {
+    height: 40vh;
+    text-align: center;
+    position: relative;
+}
+
+.petImageContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(https://place.dog/500/550);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px); /* Adjust the blur level as needed */
+    z-index: -1;
+}
+
+.petImage {
+    margin: 0 auto;
+    z-index: -1;
+    position: relative;
+}
+
+.headerContainer {
+    margin: 0.4em 1em;
+}
+
+.headerContainer h1 {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.headerContainer h2 {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.tagContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+    margin: 0.8em;
+}
+
+.petDescription {
+    margin: 0.4em 1em;
+    font-size: 0.8rem;
+}
+
+.petDescription a {
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 0.2em;
+}
+
+.buttonSectionContainer {
+    background: white;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2em;
+    justify-content: center;
+    margin: 1em auto auto;
+}
