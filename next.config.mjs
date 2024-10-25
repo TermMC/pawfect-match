@@ -7,9 +7,16 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'place.dog',
                 port: '',
-                pathname: '/**', 
-            }
-        ]
-  }};
+                pathname: '/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'robohash.org',
+                port: '',
+                pathname: '/**',
+            },
+        ],
+    },
+};
 
-  export default nextConfig;
+export default nextConfig;
