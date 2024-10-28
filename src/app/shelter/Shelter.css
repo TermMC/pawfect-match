@@ -1,0 +1,77 @@
+body {
+    z-index: -10;
+    position: relative;
+}
+
+main {
+    z-index: -10;
+    position: relative;
+}
+
+.shelterContainer {
+    margin: auto;
+    z-index: -100;
+    position: relative;
+    text-align: center;
+    background: white;
+}
+
+.backArrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1em;
+    z-index: 1000;
+}
+
+.shelterImage {
+    border-radius: 50%;
+    margin: 2em 0 1.2em 0;
+}
+
+.shelterName {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 0.5em;
+}
+
+.shelterName h1 {
+    margin-right: 0.5em;
+    display: inline;
+}
+
+.shelterName .faCircleCheck {
+    margin-left: 0.5em;
+    display: inline;
+}
+
+.shelterBio {
+    font-weight: 500;
+    padding: 1em;
+    margin: auto;
+}
+
+.shelterBio h2 {
+    font-weight: 600;
+}
+
+.petShelterImage {
+    margin: auto;
+    width: 90%;
+    border-radius: 5px;
+    height: 30%;
+}
+
+@media screen and (min-width: 700px) {
+    .petShelterImage {
+        max-width: 30%;
+    }
+
+    .shelterBio {
+        width: 60%;
+    }
+
+    .shelterBio h2 {
+        margin-bottom: 0.5em;
+    }
+}

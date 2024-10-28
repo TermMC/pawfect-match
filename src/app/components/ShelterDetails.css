@@ -1,13 +1,12 @@
-.shelterContainer {
-    width: 87%;
+.shelterDetailsContainer {
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
     align-items: center;
     gap: 1em;
-    margin: 1.1em auto auto;
+    margin: 0.7em 1em;
 }
 
-.shelterImage{
+.shelterDetailsImage{
     border-radius: 10px;
 }
 

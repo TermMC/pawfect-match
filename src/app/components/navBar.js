@@ -28,7 +28,9 @@ const Navbar = () => {
     return(
         <div style={{width: '100%'}}>
             <nav>
-              <div className="title"><Image src="/images/Logo.svg" width={200} height={80} alt="Pawfect Math logo" /></div>
+              <div>
+                  <Image className="logo" src="/images/Logo.svg" width={200} height={80} alt="Pawfect Match logo" />
+              </div>
               <Link href="/" className="desktop_menu">Home</Link>
               <Link href="/profile" className="desktop_menu">Profile</Link>
               <Link href="/messages" className="desktop_menu">Messages</Link>
