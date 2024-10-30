@@ -1,4 +1,4 @@
-import PetProfile from "./components/PetProfile";
+import PetProfile from "../components/PetProfile";
 
 export default function Home() {
   return (

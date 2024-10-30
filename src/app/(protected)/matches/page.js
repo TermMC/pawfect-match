@@ -1,4 +1,4 @@
-import ListCard from '../components/ListCard';
+import ListCard from '../../components/ListCard';
 import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
 import './Matches.css';
