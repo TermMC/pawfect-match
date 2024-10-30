@@ -1,5 +1,4 @@
 import './globals.css';
-import Navbar from './components/navBar';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 // import { Poppins } from '@next/font/google';
@@ -18,11 +17,12 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+    
+
     return (
         <html lang='en'>
             {/* <body className={poppins.className}> */}
             <body>
-                <Navbar />
                 <main>{children}</main>
                 <footer></footer>
             </body>
