@@ -1,0 +1,82 @@
+.loginPage {
+    display: flex;
+    margin: 3em auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginLogo {
+    margin: 2em auto;
+    width: 65%;
+}
+
+.loginContainer {
+    padding: 2em;
+    width: 100%;
+}
+
+.loginDetailsContainer {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.loginContainer label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+
+}
+
+.loginContainer input {
+    border-radius: 5px;
+    padding: 1.3em;
+    background-color: #F2F2F2;
+    border: none;
+}
+
+.loginContainer .loginDetailsContainer input:focus {
+    border: 1px solid #7DC9FF;
+}
+
+
+.emailContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.passwordContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.loginButton {
+    padding: 1em;
+    border: none;
+    background: #7DC9FF;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+.signupButton {
+    padding: 1em;
+    border: 1px #7DC9FF solid;
+    border-radius: 5px;
+    color: #7DC9FF;
+    font-weight: bold;
+    background: white;
+}
+
+@media screen and (min-width: 768px) {
+    .loginDetailsContainer {
+        width: 40%;
+    }
+
+    .loginLogo {
+        width: 30%;
+    }
+}
