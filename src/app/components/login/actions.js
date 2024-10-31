@@ -26,23 +26,39 @@ export async function login(formData) {
     redirect('/');
 }
 
+async function addNewUserToAccountsTable(supabase, accountsInsertObject) {
+    const { error } = await supabase.from('account').insert(accountsInsertObject);
+    if (error) {
+        console.error('Error inserting into accounts table:', error);
+    }
+}
+
 export async function signup(formData) {
     const cookieStore = await cookies();
     const supabase = await createClient(cookieStore);
 
     // type-casting here for convenience
     // in practice, you should validate your inputs
-    const data = {
-        email: formData.get('email'),
-        password: formData.get('password'),
-    };
+    const email = formData.get('email');
+    const password = formData.get('password');
+    const signUpData = { email, password };
 
-    const { error } = await supabase.auth.signUp(data);
+    const { data, error } = await supabase.auth.signUp(signUpData);
 
     if (error) {
+        console.error('Sign-up error:', error.message);
         redirect('/error');
     }
-
-    revalidatePath('/', 'layout');
-    redirect('/');
+    if (data.user) {
+        const accountsInsertObject = {
+            user_id: data.user.id,
+            username: formData.get('username'),
+            email,
+            name: formData.get('name'),
+            date_of_birth: formData.get('DOB'),
+        };
+        await addNewUserToAccountsTable(supabase, accountsInsertObject);
+        revalidatePath('/', 'layout');
+        redirect('/');
+    }
 }
