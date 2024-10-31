@@ -16,12 +16,10 @@ export default async function RootLayout({ children }) {
     }
 
     return (
-        <html lang='en'>
-            <body>
+            <>
                 <Navbar />
                 <main>{children}</main>
                 <footer></footer>
-            </body>
-        </html>
+            </>
     );
 }
