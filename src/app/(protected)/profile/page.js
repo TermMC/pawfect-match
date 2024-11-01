@@ -5,9 +5,12 @@ import Image from "next/image"
 import { supabase } from "@/utils/supabase/client"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
+
+
 export default function Page() {
   const [account, setAccount] = useState(null)
   const [loading, setLoading] = useState(true)
+  
 
   useEffect(() => {
     fetchAccount()

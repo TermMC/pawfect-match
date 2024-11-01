@@ -32,7 +32,7 @@ export default async function PetProfile() {
         </div>
         <ShelterContainer />
         <div className="petDescription">
-          <p>{pet.description}<a href="/profile">Read more...</a></p>
+          <p>{pet.description}<a href="/pet-profile">Read more...</a></p>
         </div>
       </div>
       <div className="buttonSectionContainer">
