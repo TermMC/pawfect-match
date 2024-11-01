@@ -27,35 +27,51 @@
 .loginContainer label {
     font-weight: bold;
     margin-bottom: 0.5em;
-
 }
 
 .loginContainer input {
     border-radius: 5px;
     padding: 1.3em;
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
     border: none;
 }
 
 .loginContainer .loginDetailsContainer input:focus {
-    border: 1px solid #7DC9FF;
+    border: 1px solid #7dc9ff;
 }
-
 
 .emailContainer {
     display: flex;
     flex-direction: column;
 }
 
+.nameContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.usernameContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.DOBContainer {
+    display: flex;
+    flex-direction: column;
+}
 .passwordContainer {
     display: flex;
     flex-direction: column;
 }
 
+button {
+    cursor: pointer;
+}
+
 .loginButton {
     padding: 1em;
     border: none;
-    background: #7DC9FF;
+    background: #7dc9ff;
     border-radius: 5px;
     color: white;
     font-weight: bold;
@@ -64,9 +80,9 @@
 
 .signupButton {
     padding: 1em;
-    border: 1px #7DC9FF solid;
+    border: 1px #7dc9ff solid;
     border-radius: 5px;
-    color: #7DC9FF;
+    color: #7dc9ff;
     font-weight: bold;
     background: white;
 }
