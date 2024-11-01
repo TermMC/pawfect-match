@@ -1,0 +1,62 @@
+.petName {
+    display: flex;
+    gap: 1.5vh;
+    flex-direction: column;
+    margin-top: 15px;
+
+}
+
+.petName .petDetails h1{
+font-size: 7vh;
+}
+
+.petDetails{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh;
+    margin-left: 5vh;
+    margin-bottom: 1vh;
+    
+}
+.petImageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://place.dog/500/550);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 25% 25%;
+    height: 55vh;
+    margin-left: 4vh;
+    margin-right: 4vh;
+
+}
+
+.petInfo{
+    display: flex;
+    flex-direction: row;
+    margin: 3vh;
+    gap: 2.5vh;
+    flex-wrap: wrap;
+    font-size: 1.5vh;
+    margin-bottom: 20px;
+
+}
+
+.petDescription{
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 3vh;
+    margin-right: 3vh;
+    gap: 2vh;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin-top: 3vh;
+}
+
+.petImage{
+    /* box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4); */
+    border-radius: 10px;
+    display: none;
+}
