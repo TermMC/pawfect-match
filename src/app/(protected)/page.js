@@ -14,6 +14,6 @@ export default async function Home() {
   }
 
   return (
-      <PetProfile/>
+      <PetProfile userId={data.user.id}/>
   );
 }

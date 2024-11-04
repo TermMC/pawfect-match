@@ -2,21 +2,18 @@ import Tag from './Tag';
 import Image from 'next/image';
 import './PetProfile.css';
 import ShelterContainer from "./ShelterDetails";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {
-    faSquareXmark,
-    faSquareCheck
-} from "@fortawesome/free-solid-svg-icons";
-import {cookies} from "next/headers";
-import {createClient} from "@/utils/supabase/server";
+import PetProfileClient from './PetProfileClient';
+import { cookies } from "next/headers";
+import { createClient } from "@/utils/supabase/server";
 
-export default async function PetProfile() {
+export default async function PetProfile({ userId }) {
     const cookieStore = cookies();
     const supabase = await createClient(cookieStore);
 
-    const petId = '40'
+    const petId = '40';
 
-    const {data: pet} = await supabase.from('pets')
+    const { data: pet } = await supabase
+        .from('pets')
         .select('pet_id, name, breed, age, gender, vaccinated, description, owner_id')
         .eq('pet_id', petId)
         .limit(1)
@@ -39,11 +36,11 @@ export default async function PetProfile() {
                     <h2>{pet.breed}</h2>
                 </div>
                 <div className="tagContainer">
-                    <Tag title="Age" description={`${pet.age}`}/>
-                    <Tag title="Gender" description={`${pet.gender}`}/>
-                    <Tag title="Vaccinated" description={pet.vaccinated ? 'Yes' : 'No'}/>
+                    <Tag title="Age" description={`${pet.age}`} />
+                    <Tag title="Gender" description={`${pet.gender}`} />
+                    <Tag title="Vaccinated" description={pet.vaccinated ? 'Yes' : 'No'} />
                 </div>
-                <ShelterContainer petId={pet.pet_id} shelterId={pet.owner_id}/>
+                <ShelterContainer petId={pet.pet_id} shelterId={pet.owner_id} />
                 <div className="petDescription">
                     <p>
                         {pet.description}
@@ -51,12 +48,7 @@ export default async function PetProfile() {
                     </p>
                 </div>
             </div>
-            <div className="buttonSectionContainer">
-                <div className="buttonContainer">
-                    <FontAwesomeIcon icon={faSquareXmark} size="5x" style={{color: "#B32828"}}/>
-                    <FontAwesomeIcon icon={faSquareCheck} size="5x" style={{color: "#0E5C1F"}}/>
-                </div>
-            </div>
+            <PetProfileClient pet={pet} userId={userId} />
         </div>
     );
 }
