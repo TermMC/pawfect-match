@@ -1,4 +1,4 @@
-.tagContainer {
+.individualTagContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -20,4 +20,5 @@
 .tagDescription {
     font-weight: bold;
     font-size: 1.2rem;
+    text-transform: capitalize;
 }
