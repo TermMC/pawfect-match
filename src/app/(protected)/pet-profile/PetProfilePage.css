@@ -105,7 +105,7 @@ font-size: 5vh;
     cursor: pointer;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
     width: 20vh;
-    border-radius: 10vh;
+    border-radius: 3vh;
     height: 20vh;
     text-align: center;
     padding-left: 5vh;
@@ -123,7 +123,7 @@ font-size: 5vh;
 .adoptButton{
     height: 10vh;
     width: 10vh;
-    border-radius: 10vh;
+    border-radius: 3vh;
     font-size: 5vh;
     text-align: center;
     cursor: pointer;
@@ -136,7 +136,7 @@ font-size: 5vh;
     color: rgb(115, 239, 141);
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 50px) {
     .petImageContainer::before {
         display: flex;
         content: "";
