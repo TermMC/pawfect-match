@@ -1,5 +1,4 @@
 
-import Image from 'next/image';
 import './PetProfilePage.css';
 import ShelterContainer from "../../components/ShelterDetails";
 import {supabase} from "@/utils/supabase/client";

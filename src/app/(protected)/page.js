@@ -1,7 +1,19 @@
 import PetProfile from "../components/PetProfile";
+import {cookies} from "next/headers";
+import {createClient} from "@/utils/supabase/server";
+import {redirect} from "next/navigation";
 
-export default function Home() {
-  return (
-    <PetProfile />
-  );
+export default async function Home() {
+  const cookieStore = await cookies();
+  const supabase = await createClient(cookieStore);
+
+  const {data, error} = await supabase.auth.getUser();
+  console.log(data)
+  if (error || !data?.user) {
+    redirect('/login');
   }
+
+  return (
+      <PetProfile userId={data.user.id}/>
+  );
+}
