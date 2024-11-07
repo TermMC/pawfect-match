@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSquareXmark, faSquareCheck} from "@fortawesome/free-solid-svg-icons";
 import {supabase} from "@/utils/supabase/client";
 
-const PetProfileClient = ({pet, userId}) => {
+const PetProfileAction = ({pet, userId, availablePets}) => {
     const [error, setError] = useState(null);
 
     const handleLike = async () => {
@@ -18,6 +18,8 @@ const PetProfileClient = ({pet, userId}) => {
                 .select();
 
             console.log('like success', data);
+
+            window.location.reload();
 
             if (error)
                 setError(error.message);
@@ -38,6 +40,8 @@ const PetProfileClient = ({pet, userId}) => {
 
             console.log('dislike success', data);
 
+            window.location.reload();
+
             if (error)
                 setError(error.message);
         } catch (error) {
@@ -57,4 +61,4 @@ const PetProfileClient = ({pet, userId}) => {
     );
 };
 
-export default PetProfileClient;
+export default PetProfileAction;
