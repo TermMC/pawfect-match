@@ -67,25 +67,22 @@ export default function UserProfile({user_id_main}) {
   if (loading) return <div className="loading">Loading...</div>
   if (!account) return <div className="noAccount">No account found</div>
 
-  const handleScroll = () => {
-    const form = document.getElementById('pform')
-    form.scrollIntoView({ behavior: 'smooth' })
-  }
+  const names = account.name.split(' ')
+  const first_name = names[0]
 
   return (
     <>
       <section className="profilePageHolder">
         <div className='titleBox'>
-          <div className="profTitle">Hey, {account.username}! &#128075;</div>
+          <div className="profTitle">Hey, {first_name}! &#128075;</div>
         </div>
         <div className="profPictureBox">
           <Image src="https://avatar.iran.liara.run/public" className="profPicture" width='200' height='200' alt="Profile Picture" />
         </div>
         <div>
           <p className="displayName">
-            {account.name} 
+            {account.username} 
             <FontAwesomeIcon icon={faCircleCheck} className={account.verified? 'verified' : 'unverified'} />
-            <input type="button" value="Edit Profile"className="editProfile" onClick={handleScroll}></input>
             </p>
         </div>
         <div className='fbox'>
@@ -94,6 +91,11 @@ export default function UserProfile({user_id_main}) {
               <label htmlFor="name">Name</label>
               <div className="input-icon-wrapper">
                 <input id="name" type="text" name="name" placeholder="Full Name" defaultValue={account.name}/>
+                <FontAwesomeIcon icon={faUser} className="input-icon"/>
+              </div>
+              <label htmlFor="username">Username</label>
+              <div className="input-icon-wrapper">
+                <input id="username" type="text" name="username" placeholder="Username" defaultValue={account.username}/>
                 <FontAwesomeIcon icon={faUser} className="input-icon"/>
               </div>
 
