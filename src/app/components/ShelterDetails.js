@@ -29,7 +29,7 @@ export default async function ShelterDetails({ petId, shelterId }) {
     }
 
     return (
-        <Link href={`/shelter/${shelterId}`}>`
+        <Link href={`/shelter/${shelterId}`}>
             <div className="shelterDetailsContainer">
                 <Image className="shelterDetailsImage" src="/images/ShelterImage.svg" width="80" height="80"
                        alt="Shelter logo"></Image>
