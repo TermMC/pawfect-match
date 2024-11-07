@@ -1,10 +1,10 @@
-import styles from "./Tag.module.css";
+import './Tag.css';
 
 const Tag = ({title, description}) => {
   return (
-    <div className={styles.tagContainer}>
-      <h1 className={styles.tagTitle}>{title}</h1>
-      <h2 className={styles.tagDescription}>{description}</h2>
+    <div className="individualTagContainer">
+      <h1 className="tagTitle">{title}</h1>
+      <h2 className="tagDescription">{description}</h2>
     </div>
   );
 }
