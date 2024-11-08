@@ -1,13 +1,13 @@
-import ListCard from '../../components/ListCard';
+import ListCard from '../../../components/ListCard';
 import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
-import './Messages.css';
+import '../Messages.css';
 
-const id = 'b28f56b5-589b-4ded-8ebe-23efc579a794';
+export default async function Messages({ params }) {
+    const userId = (await params).userId;
 
-export default async function Matches() {
     const cookieStore = cookies();
-    const supabase = createClient(cookieStore);
+    const supabase = await createClient(cookieStore);
     let uniqueMessages = [];
     const { data, error } = await supabase
         .from('messages')
@@ -28,13 +28,14 @@ export default async function Matches() {
             )
           `
         )
-        .eq('user_id', id)
+        .eq('user_id', userId)
         .order('match_id', { ascending: true })
         .order('sent_at', { ascending: false });
 
     if (error) {
         console.error(error);
     } else {
+        console.log('DTA', data);
         uniqueMessages = Array.from(
             data
                 .reduce((map, message) => {

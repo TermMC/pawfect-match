@@ -1,15 +1,18 @@
-import ListCard from '../../components/ListCard';
+import ListCard from '../../../components/ListCard';
 import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
-import './Matches.css';
+import '../Matches.css';
 
-const id = 'b28f56b5-589b-4ded-8ebe-23efc579a794';
+export default async function Matches({ params }) {
+    const userId = (await params).userId;
 
-export default async function Matches() {
     const cookieStore = cookies();
-    const supabase = createClient(cookieStore);
+    const supabase = await createClient(cookieStore);
 
-    const { data: matches } = await supabase.from('matches').select('match_id,pet_id, status, pets(age,species, breed, size, image, name)').eq('user_id', id);
+    const { data: matches } = await supabase
+        .from('matches')
+        .select('match_id,pet_id, status, pets(age,species, breed, size, image, name)')
+        .eq('user_id', userId);
 
     return (
         <div className='match-list'>
