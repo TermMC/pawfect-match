@@ -5,31 +5,32 @@
 
 .petName {
     display: flex;
-    gap: 1.5vh;
+    gap: 1em;
     flex-direction: column;
     margin-top: 1.5em;
 
 }
 
-.petName .petDetails h1{
-font-size: 5vh;
+.petName .petDetails h1 {
+    font-size: 3rem;
 }
 
-.petName .petDetails h2{
-    font-size: 3vh;
-    }
+.petName .petDetails h2 {
+    font-size: 2rem;
+}
 
-.petDetails{
+.petDetails {
     display: flex;
     flex-direction: column;
-    gap: 0.5vh;
-    margin-bottom: 1vh;
+    gap: 1em;
+    margin-bottom: 1em;
     justify-content: center;
     text-align: center;
-    
-    
+
+
 }
-.petProfileImageContainer{
+
+.petProfileImageContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,8 +42,7 @@ font-size: 5vh;
     align-self: center;
     position: relative;
     margin: auto auto 1em;
-    
-    
+
 
 }
 
@@ -60,27 +60,27 @@ font-size: 5vh;
     width: 100vw;
 }
 
-.petInfo{
+.petInfo {
     display: flex;
     flex-direction: row;
-    gap: 1vh;
+    gap: 1em;
     flex-wrap: wrap;
-    font-size: 1.75vw;
+    font-size: 1rem;
     margin: 1em 0.5em;
     padding: 10px;
 }
 
-.petProfileDescription{
+.petProfileDescription {
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    gap: 2vh;
+    gap: 1em;
     padding: 1em;
     border: 1px solid rgb(207, 207, 207);
     margin: 1em 1em 1.5em;
 }
 
-.buttonSectionContainer{
+.buttonSectionContainer {
     display: flex;
     font-size: 2rem;
     justify-content: center;
@@ -90,7 +90,7 @@ font-size: 5vh;
     background-color: white;
 }
 
-.backButtonContainer{
+.backButtonContainer {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -99,18 +99,18 @@ font-size: 5vh;
     padding: 1em 1.3em;
 }
 
-.backButtonContainer :hover{
+.backButtonContainer :hover {
     color: crimson;
 }
 
-.buttonPetProfileContainer{
+.buttonPetProfileContainer {
     display: flex;
     justify-content: center;
 }
 
-.adoptButton{
+.adoptButton {
     border-radius: 20px;
-    font-size: 5vh;
+    font-size: 2rem;
     text-align: center;
     cursor: pointer;
     border: none;
@@ -118,8 +118,8 @@ font-size: 5vh;
     padding: 1em;
 }
 
-.buttonContainer :hover{
-    background-color:  #4cacfa;
+.buttonContainer :hover {
+    background-color: #4cacfa;
     color: rgb(115, 239, 141);
 }
 
@@ -138,36 +138,34 @@ font-size: 5vh;
         width: 100vw;
     }
 
-    .petProfileImageContainer{
+    .petProfileImageContainer {
         height: 50vh;
         width: 100%;
         background-position: 25%, 25%;
     }
 
-    .adoptButton{
+    .adoptButton {
         font-size: 3.5rem;
         position: relative;
     }
 }
 
-
-  
-  .adoptButton .fa-icon {
+.adoptButton .fa-icon {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation: pulse 1.5s ease infinite;
-  }
+}
 
-  @keyframes pulse {
+@keyframes pulse {
     0% {
-      transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1);
     }
     50% {
-      transform: translate(-50%, -50%) scale(1.3); /* Adjust scale as needed */
+        transform: translate(-50%, -50%) scale(1.3); /* Adjust scale as needed */
     }
     100% {
-      transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1);
     }
-  }
+}
