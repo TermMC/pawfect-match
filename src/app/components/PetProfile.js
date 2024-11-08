@@ -5,6 +5,7 @@ import ShelterContainer from "./ShelterDetails";
 import PetProfileAction from './PetProfileAction';
 import { cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
+import Link from "next/link";
 
 export default async function PetProfile({ userId }) {
     const cookieStore = cookies();
@@ -72,7 +73,7 @@ export default async function PetProfile({ userId }) {
                         <div className="petDescription">
                             <p>
                                 {availablePet.description}
-                                <a href="/pet-profile">Read more...</a>
+                                <Link href={`/pet-profile/${availablePet.pet_id}`} >Read more...</Link>
                             </p>
                         </div>
                     </div>
