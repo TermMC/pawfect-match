@@ -126,6 +126,32 @@ label {
   margin-left: 10px;
 }
 
+.input-icon-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+/* Adjust the icon position for textarea */
+textarea + .input-icon {
+  top: 10px;
+  transform: none;
+}
+
+/* Increase right padding of inputs to make room for icons */
+input[type="text"],
+input[type="date"],
+textarea {
+  padding-right: 30px;
+}
+
+
 
 
 /* body {
