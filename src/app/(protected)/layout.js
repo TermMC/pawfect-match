@@ -16,10 +16,10 @@ export default async function RootLayout({ children }) {
     }
 
     return (
-            <>
-                <Navbar />
-                <main>{children}</main>
-                <footer></footer>
-            </>
+        <>
+            <Navbar />
+            <div style={{ height: 'calc(100% - 5em)' }}>{children}</div>
+            <footer></footer>
+        </>
     );
 }

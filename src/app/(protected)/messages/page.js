@@ -3,50 +3,52 @@ import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
 import './Messages.css';
 
-const id = 'b28f56b5-589b-4ded-8ebe-23efc579a794';
-
-export default async function Matches() {
+export default async function Messages() {
     const cookieStore = cookies();
-    const supabase = createClient(cookieStore);
+    const supabase = await createClient(cookieStore);
     let uniqueMessages = [];
-    const { data, error } = await supabase
-        .from('messages')
-        .select(
-            `
-            message_id,
-            user_id,
-            match_id,
-            content,
-            sent_at,
-            sender,
-            matches (
-              match_id,
-              pets (
-                pet_id,
-                name
-              )
-            )
-          `
-        )
-        .eq('user_id', id)
-        .order('match_id', { ascending: true })
-        .order('sent_at', { ascending: false });
-
-    if (error) {
-        console.error(error);
+    const { data, error } = await supabase.auth.getUser();
+    if (error || !data?.user) {
+        redirect('/login');
     } else {
-        uniqueMessages = Array.from(
-            data
-                .reduce((map, message) => {
-                    if (!map.has(message.match_id)) {
-                        map.set(message.match_id, message);
-                    }
-                    return map;
-                }, new Map())
-                .values()
-        );
-    }
+        const { data: messages, error } = await supabase
+            .from('messages')
+            .select(
+                `
+                message_id,
+                user_id,
+                match_id,
+                content,
+                sent_at,
+                sender,
+                matches (
+                match_id,
+                pets (
+                    pet_id,
+                    name
+                )
+                )
+            `
+            )
+            .eq('user_id', data.user.id)
+            .order('match_id', { ascending: true })
+            .order('sent_at', { ascending: false });
 
+        if (error) {
+            console.error(error);
+        } else {
+            uniqueMessages = Array.from(
+                messages
+                    .reduce((map, message) => {
+                        if (!map.has(message.match_id)) {
+                            map.set(message.match_id, message);
+                        }
+                        return map;
+                    }, new Map())
+                    .values()
+            );
+        }
+    }
     return (
         <div className='message-list'>
             {uniqueMessages.map((message) => (

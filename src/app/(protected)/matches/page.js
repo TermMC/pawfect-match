@@ -3,13 +3,17 @@ import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
 import './Matches.css';
 
-const id = 'b28f56b5-589b-4ded-8ebe-23efc579a794';
-
 export default async function Matches() {
     const cookieStore = cookies();
-    const supabase = createClient(cookieStore);
-
-    const { data: matches } = await supabase.from('matches').select('match_id,pet_id, status, pets(age,species, breed, size, image, name)').eq('user_id', id);
+    const supabase = await createClient(cookieStore);
+    const { data, error } = await supabase.auth.getUser();
+    if (error || !data?.user) {
+        redirect('/login');
+    }
+    const { data: matches } = await supabase
+        .from('matches')
+        .select('match_id,pet_id, status, pets(age,species, breed, size, image, name)')
+        .eq('user_id', data.user.id);
 
     return (
         <div className='match-list'>
