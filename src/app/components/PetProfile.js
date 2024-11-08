@@ -5,21 +5,11 @@ import ShelterContainer from "./ShelterDetails";
 import PetProfileAction from './PetProfileAction';
 import { cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
+import Link from "next/link";
 
 export default async function PetProfile({ userId }) {
     const cookieStore = cookies();
     const supabase = await createClient(cookieStore);
-
-    const { data: pet, error: petError } = await supabase
-        .from('pets')
-        .select('pet_id, name, breed, age, gender, vaccinated, description, owner_id')
-        .limit(1)
-        .single();
-
-    if (petError){
-        console.error('Error fetching pet:', petError.message)
-        return <div>Error fetching pet profile.</div>
-    }
 
     const { data: matchedPets, error: matchesError } = await supabase
         .from('matches')
@@ -72,7 +62,7 @@ export default async function PetProfile({ userId }) {
                         <div className="petDescription">
                             <p>
                                 {availablePet.description}
-                                <a href="/pet-profile">Read more...</a>
+                                <Link href={`/pet-profile/${availablePet.pet_id}`} >Read more...</Link>
                             </p>
                         </div>
                     </div>

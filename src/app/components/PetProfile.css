@@ -16,6 +16,7 @@ main {
     position: relative;
     z-index: -10;
     box-sizing: border-box;
+    background-color: white;
 }
 
 .profileContainer {
@@ -92,10 +93,11 @@ main {
     background: white;
 }
 
-.buttonContainer {
+.buttonPetContainer {
     display: flex;
     flex-wrap: nowrap;
     gap: 2em;
     justify-content: center;
     margin: 1em auto auto;
+    background-color: white;
 }

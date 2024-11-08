@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSquareXmark, faSquareCheck} from "@fortawesome/free-solid-svg-icons";
 import {supabase} from "@/utils/supabase/client";
 
-const PetProfileAction = ({pet, userId, availablePets}) => {
+const PetProfileAction = ({pet, userId}) => {
     const [error, setError] = useState(null);
 
     const handleLike = async () => {
@@ -51,8 +51,8 @@ const PetProfileAction = ({pet, userId, availablePets}) => {
     };
 
     return (
-        <div className="buttonSectionContainer">
-            <div className="buttonContainer">
+        <div>
+            <div className="buttonPetContainer">
                 {error && <p className="error">{error}</p>}
                 <FontAwesomeIcon onClick={handleDislike} icon={faSquareXmark} size="5x" style={{color: "#B32828"}}/>
                 <FontAwesomeIcon onClick={handleLike} icon={faSquareCheck} size="5x" style={{color: "#0E5C1F"}}/>
