@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSquareXmark, faSquareCheck} from "@fortawesome/free-solid-svg-icons";
 import {supabase} from "@/utils/supabase/client";
 
-const PetProfileAction = ({pet, userId, availablePets}) => {
+const PetProfileAction = ({pet, userId}) => {
     const [error, setError] = useState(null);
 
     const handleLike = async () => {

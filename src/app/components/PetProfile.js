@@ -11,7 +11,7 @@ export default async function PetProfile({ userId }) {
     const cookieStore = cookies();
     const supabase = await createClient(cookieStore);
 
-    const { data: pet, error: petError } = await supabase
+    const { data, error: petError } = await supabase
         .from('pets')
         .select('pet_id, name, breed, age, gender, vaccinated, description, owner_id')
         .limit(1)

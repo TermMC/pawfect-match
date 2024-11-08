@@ -1,3 +1,8 @@
+.petProfilePageContainer {
+    background-color: white;
+    box-sizing: border-box;
+}
+
 .petName {
     display: flex;
     gap: 1.5vh;
@@ -82,6 +87,7 @@ font-size: 5vh;
     gap: 2em;
     align-items: center;
     margin: 0.8em auto;
+    background-color: white;
 }
 
 .backButtonContainer{
