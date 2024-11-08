@@ -13,7 +13,7 @@ export default async function PetProfile() {
       .single();
 
   return (
-    <>
+    <div className="petProfilePageContainer">
     <div className='petName'>
       <div className='petDetails'>
         <h1>{pet.name}</h1>
@@ -46,6 +46,6 @@ export default async function PetProfile() {
         <button className='adoptButton'><FontAwesomeIcon className='fa-icon' icon={faHeart}/></button>
       </div>
     </div>
-  </>
+  </div>
   )
 }
