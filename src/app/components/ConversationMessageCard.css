@@ -1,0 +1,15 @@
+.message-card {
+    border: 1px red solid;
+}
+
+.message-card-content {
+    border: 1px blue solid;
+}
+
+.message-card-body {
+    border: 1px green solid;
+}
+
+.message-card-time {
+    border: 1px grey solid;
+}
