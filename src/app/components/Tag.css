@@ -13,12 +13,12 @@
 .tagTitle {
     color: #4B3D3D;
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 0.5em;
 }
 
 .tagDescription {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     text-transform: capitalize;
 }

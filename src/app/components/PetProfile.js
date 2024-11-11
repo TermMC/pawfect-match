@@ -6,6 +6,8 @@ import PetProfileAction from './PetProfileAction';
 import { cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPaw} from "@fortawesome/free-solid-svg-icons";
 
 export default async function PetProfile({ userId }) {
     const cookieStore = cookies();
@@ -54,22 +56,32 @@ export default async function PetProfile({ userId }) {
                             <h2>{availablePet.breed}</h2>
                         </div>
                         <div className="tagContainer">
-                            <Tag title="Age" description={`${availablePet.age}`} />
-                            <Tag title="Gender" description={`${availablePet.gender}`} />
-                            <Tag title="Vaccinated" description={availablePet.vaccinated ? 'Yes' : 'No'} />
+                            <Tag title="Age" description={`${availablePet.age}`}/>
+                            <Tag title="Gender" description={`${availablePet.gender}`}/>
+                            <Tag title="Vaccinated" description={availablePet.vaccinated ? 'Yes' : 'No'}/>
                         </div>
-                        <ShelterContainer petId={availablePet.pet_id} shelterId={availablePet.owner_id} />
+                        <ShelterContainer petId={availablePet.pet_id} shelterId={availablePet.owner_id}/>
                         <div className="petDescription">
                             <p>
                                 {availablePet.description}
-                                <Link href={`/pet-profile/${availablePet.pet_id}`} >Read more...</Link>
+                                <Link href={`/pet-profile/${availablePet.pet_id}`}>Read more...</Link>
                             </p>
                         </div>
                     </div>
-                    <PetProfileAction pet={availablePet} userId={userId} availablePets={availablePets} />
+                    <PetProfileAction pet={availablePet} userId={userId} availablePets={availablePets}/>
                 </div>
             ) : (
-                <div>No available pets at the moment.</div>
+                <div className="noAvailablePets">
+                    <div>
+                        <FontAwesomeIcon icon={faPaw} size="8x" className="pawIcon" />
+                    </div>
+                    <div>
+                        <h1>No available pets at the moment.</h1>
+                    </div>
+                    <div>
+                        <h2>Check back later to discover new options!</h2>
+                    </div>
+                </div>
             )}
         </div>
     );

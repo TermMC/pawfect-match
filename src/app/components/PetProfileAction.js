@@ -2,11 +2,14 @@
 
 import {useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSquareXmark, faSquareCheck} from "@fortawesome/free-solid-svg-icons";
+import {faXmark, faHeart} from "@fortawesome/free-solid-svg-icons";
 import {supabase} from "@/utils/supabase/client";
 
 const PetProfileAction = ({pet, userId}) => {
     const [error, setError] = useState(null);
+
+    const [showHeart, setShowHeart] = useState(false)
+    const [showCross, setShowCross] = useState(false)
 
     const handleLike = async () => {
         try {
@@ -17,9 +20,14 @@ const PetProfileAction = ({pet, userId}) => {
                 ])
                 .select();
 
+            setShowHeart(true);
+            setTimeout(() => setShowHeart(false), 2000);
+
             console.log('like success', data);
 
-            window.location.reload();
+            setTimeout(function () {
+                window.location.reload();
+            }, 1500);
 
             if (error)
                 setError(error.message);
@@ -38,9 +46,14 @@ const PetProfileAction = ({pet, userId}) => {
                 ])
                 .select();
 
+            setShowCross(true);
+            setTimeout(() => setShowCross(false), 2000);
+
             console.log('dislike success', data);
 
-            window.location.reload();
+            setTimeout(function () {
+                window.location.reload();
+            }, 1500);
 
             if (error)
                 setError(error.message);
@@ -54,8 +67,14 @@ const PetProfileAction = ({pet, userId}) => {
         <div>
             <div className="buttonPetContainer">
                 {error && <p className="error">{error}</p>}
-                <FontAwesomeIcon onClick={handleDislike} icon={faSquareXmark} size="5x" style={{color: "#B32828"}}/>
-                <FontAwesomeIcon onClick={handleLike} icon={faSquareCheck} size="5x" style={{color: "#0E5C1F"}}/>
+                <FontAwesomeIcon onClick={handleDislike} icon={faXmark} size="3x" className="dislikeButtonContainer"/>
+                {showCross && <div className="iconContainer">
+                    <FontAwesomeIcon icon={faXmark} size="10x" className="crossIcon"/>
+                </div>}
+                <FontAwesomeIcon onClick={handleLike} icon={faHeart} size="3x" className="likeButtonContainer"/>
+                {showHeart && <div className="iconContainer">
+                    <FontAwesomeIcon icon={faHeart} size="10x" className="heart"/>
+                </div>}
             </div>
         </div>
     );
