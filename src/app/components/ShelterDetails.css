@@ -3,7 +3,7 @@
     grid-template-columns: 1fr 8fr 1fr;
     align-items: center;
     gap: 1em;
-    margin: 0.7em 1em;
+    margin: 0.7em 1em 0.1em;
 }
 
 .shelterDetailsImage{

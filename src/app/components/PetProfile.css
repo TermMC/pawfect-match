@@ -9,14 +9,13 @@ main {
 }
 
 .pageContainer {
-    display: flex;
-    overflow: hidden;
     width: 100%;
-    flex-direction: column;
     position: relative;
     z-index: -10;
     box-sizing: border-box;
     background-color: white;
+    height: 90vh;
+    overflow-x: hidden;
 }
 
 .profileContainer {
@@ -47,7 +46,7 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    filter: blur(8px); /* Adjust the blur level as needed */
+    filter: blur(8px);
     z-index: -1;
 }
 
@@ -63,7 +62,7 @@ main {
 
 .headerContainer h1 {
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .headerContainer h2 {
@@ -75,11 +74,11 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1em;
-    margin: 0.8em;
+    margin: auto 0.8em;
 }
 
 .petDescription {
-    margin: 0.4em 1em;
+    margin: 0.8em 1em;
     font-size: 0.8rem;
 }
 
@@ -87,6 +86,28 @@ main {
     text-decoration: none;
     font-weight: bold;
     margin-left: 0.2em;
+}
+
+.noAvailablePets {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: 2em auto;
+    align-items: center;
+    text-align: center;
+}
+
+.noAvailablePets h1 {
+    font-size: 1.5rem;
+}
+
+.noAvailablePets h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.pawIcon {
+    color: #002846;
 }
 
 .buttonSectionContainer {
@@ -98,6 +119,73 @@ main {
     flex-wrap: nowrap;
     gap: 2em;
     justify-content: center;
-    margin: 1em auto auto;
+    margin: auto;
     background-color: white;
+    position: relative;
 }
+
+.dislikeButtonContainer {
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.4);
+    padding: 0.3em 0.4em;
+    color: darkred;
+}
+
+.likeButtonContainer {
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.4);
+    padding: 0.3em;
+    color: #7DC9FF;
+}
+
+.iconContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.heart {
+    animation: pulse 1s ease-in-out infinite;
+    color: #7DC9FF;
+    position: fixed;
+}
+
+.crossIcon {
+    color: darkred;
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.75;
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+
