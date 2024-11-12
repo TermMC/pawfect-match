@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const SmallTag = ({title, children, icon}) => {
   return (
     <div className='tagSmallContainer'>
-      <p className='tagTitle'>{title}{children}&nbsp;&nbsp;<FontAwesomeIcon icon={icon} /></p>  
+      <p>{title}{children}&nbsp;&nbsp;<FontAwesomeIcon icon={icon} /></p>  
     </div>
   );
 }
