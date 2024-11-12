@@ -2,7 +2,7 @@ import '../PetProfilePage.css';
 import ShelterContainer from "../../../components/ShelterDetails";
 import {supabase} from "@/utils/supabase/client";
 import SmallTag from '@/app/components/SmallTag';
-import { faVenusMars, faUpRightAndDownLeftFromCenter, faSyringe, faMicrochip, faChild, faPaw, faHeart, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faVenusMars, faUpRightAndDownLeftFromCenter, faSyringe, faMicrochip, faChild, faPaw, faArrowLeft, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from "next/link";
 
@@ -10,7 +10,7 @@ export default async function PetProfile({ params }) {
   const petId = await params.petId;
 
   const { data: pet, error } = await supabase.from("pets")
-    .select('pet_id, name, breed, age, gender, vaccinated, description, microchip, child_friendly, pet_friendly, size, owner_id')
+    .select('pet_id, name, breed, age, gender, vaccinated, description, microchip, child_friendly, pet_friendly, size, owner_id, address')
     .eq('pet_id', petId)
     .single();
 
@@ -45,15 +45,19 @@ export default async function PetProfile({ params }) {
       <h2>More about me...</h2>
       <p>{pet.description}</p>
     </div>
+    <div className='petProfileDescription'>
+      <h2>Where you can find me</h2>
+      <p><FontAwesomeIcon className='locationIcon' icon={faLocationDot} /> {pet.address}</p>
+    </div>
+    <div className='petProfileDescription'>
+      <h2>My Shelter</h2>
     <ShelterContainer className='shelterContainer' petId={pet.pet_id} shelterId={pet.owner_id} />
+    </div>
     <div className='buttonSectionContainer'>
       <div className='backButtonContainer'>
-        <Link href='/'>
+        <Link href='/' aria-label="Navigate back to homepage">
           <FontAwesomeIcon className='backButton' icon={faArrowLeft}/>
         </Link>
-      </div>
-      <div className='buttonPetProfielContainer'>
-        <button className='adoptButton'><FontAwesomeIcon className='fa-icon' icon={faHeart}/></button>
       </div>
     </div>
   </div>
