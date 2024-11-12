@@ -6,11 +6,17 @@ import { faVenusMars, faUpRightAndDownLeftFromCenter, faSyringe, faMicrochip, fa
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from "next/link";
 
-export default async function PetProfile() {
+export default async function PetProfile({ params }) {
+  const petId = await params.petId;
+
   const { data: pet } = await supabase.from("pets")
-      .select('pet_id, name, breed, age, gender, vaccinated, description, microchip, child_friendly, pet_friendly, size' )
-      .limit(1)
-      .single();
+    .select('pet_id, name, breed, age, gender, vaccinated, description, microchip, child_friendly, pet_friendly, size, owner_id')
+    .eq('pet_id', petId)
+    .single();
+
+  if (!pet) {
+    return <div>Pet not found</div>;
+  }
 
   return (
     <div className="petProfilePageContainer">
