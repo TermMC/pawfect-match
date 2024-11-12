@@ -9,14 +9,18 @@ import Link from "next/link";
 export default async function PetProfile({ params }) {
   const petId = await params.petId;
 
-  const { data: pet } = await supabase.from("pets")
+  const { data: pet, error } = await supabase.from("pets")
     .select('pet_id, name, breed, age, gender, vaccinated, description, microchip, child_friendly, pet_friendly, size, owner_id')
     .eq('pet_id', petId)
     .single();
 
-  if (!pet) {
-    return <div>Pet not found</div>;
-  }
+    if (error) {
+      throw error; // Next.js will catch this and show the closest error boundary
+    }
+  
+    if (!pet) {
+      return <div>Pet not found</div>;
+    }
 
   return (
     <div className="petProfilePageContainer">
