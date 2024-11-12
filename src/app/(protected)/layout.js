@@ -18,7 +18,7 @@ export default async function RootLayout({ children }) {
     return (
         <>
             <Navbar />
-            <div style={{ height: 'calc(100% - 5em)' }}>{children}</div>
+            <div  style={{ height: 'calc(100% - 5em)', position: 'relative', zIndex: -10}}>{children}</div>
             <footer></footer>
         </>
     );
