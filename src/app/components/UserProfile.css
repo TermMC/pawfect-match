@@ -1,13 +1,8 @@
 /* to put page below nav bar */
-body{
-    position: relative;
-    z-index: -10;
-    background-image: url('../../../public/images/footprints\ \(6\).png');
-    background-repeat: repeat-x-y;
-}
 
 
 /* styling the form and all its components */
+
   #pform input, #pform textarea {
     padding: 15px;
     border: 1px solid #ccc;
@@ -21,14 +16,14 @@ body{
   }
 
   #pform fieldset {
-    background: white;
-    border-color: white;
+    border: none;
     border-radius: 15px;
     padding: 20px 30px;
     box-sizing: border-box;
     width: 80%;
     margin: 0 10%;
-    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    /* box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4); */
+    background-color: #d3e6f4;
   }
 
 textarea{
@@ -36,27 +31,27 @@ textarea{
 }
 
 .updateButton{
-    background-color: rgba(40, 162, 255, 0.578);
+    background-color: rgb(130, 197, 255);
     cursor: pointer;
 }
 
 /* main layout of the page and containers */
 .profilePageHolder{
     position: relative;
-    z-index: -10;
+    z-index: -100;
     
     
 }
 
 .titleBox{
-  margin-top: 1vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: -10;
-    height: 15vh;
-    border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: -10;
+  padding: 2vh 0; /* Consistent vertical padding */
+  margin: 3vh 0; /* Consistent vertical margin */
+  width: 100%;
 }
 
 body{
@@ -65,16 +60,16 @@ body{
 }
 
 .profTitle{
-    font-family: Arial, Helvetica, sans-serif;
-    width: 50%;
-    font-size: 5vh;
-    position: relative;
-    z-index: -10;
-    text-align: center;
-    border-radius: 15px;
-    border-bottom: none;
-    background-color: #91D1FF;
-    padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: min(80%, 800px); /* Responsive width with maximum */
+  font-size: clamp(1.5rem, 5vw, 4rem); /* Responsive font size */
+  word-wrap: break-word;
+  position: relative;
+  z-index: -10;
+  text-align: center;
+  border-radius: 15px;
+  background-color: #d3e6f4;
+  padding: clamp(0.5rem, 2vh, 2rem); /* Responsive padding */
 }
 
 .profPictureBox
@@ -88,6 +83,10 @@ body{
     position: relative;
     margin-top: 2em;
     margin-bottom: 2em;
+    width: 100%;
+    max-width: 200px; /* Or your desired maximum size */
+    aspect-ratio: 1/1; /* Maintains square shape */
+    margin: 0 auto;
 }
 main{
     z-index: -10;
@@ -96,16 +95,19 @@ main{
 
 .profPicture{
     border-radius: 10em;
-    z-index: -100;
+    z-index: -10;
     position: relative;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintains aspect ratio while filling container */
+    border-radius: 50%; /* For circular profile picture */
 }
 
 .profileField{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 3vh;
     width: 75%;
-    margin-top: 10 px;
     margin-top: 5px;
     margin-bottom: 5px;
     border: solid 1px;
@@ -161,18 +163,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     -webkit-appearance: none;
 }
 
-.edit{
-  display: flex;
-  margin-top: 3vh;
-  font-size: 5vh;
-  background-color: rgb(170, 225, 255);
-}
 
 .verified{
   color: dodgerblue;
   position: relative;
   z-index: -10;
-  font-size: 7vh;
+  font-size: 5vh;
   cursor: pointer;
 }
 
@@ -185,8 +181,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: center;
   gap: 2vw;
-  margin-bottom: 25vh;
-  font-size: 6vh;
+  margin-bottom: 2vh;
+  font-size: 4vh;
 }
 
 .loading{
@@ -196,4 +192,35 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 100%;
   margin-top: 30vh;
   font-size: 5vh;
+  z-index: -100;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  display: block;
+}
+
+.input-icon-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.updateButton :disabled{
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+@media screen and (max-width: 768px) {
+  .titleBox {
+      margin: 2vh 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .titleBox {
+      margin: 1.5vh 0;
+  }
 }
