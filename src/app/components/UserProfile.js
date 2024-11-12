@@ -11,8 +11,10 @@ import { faUser, faCalendar, faEnvelope, faPenToSquare, faCircleCheck, faIdBadge
 
 
 export default function UserProfile({user_id_main}) {
+  const EMAIL_REGEX = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
   const [account, setAccount] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [successful, setSuccessful] = useState(false)
   const [errors, setErrors] = useState({
     name: '',
     username: '',
@@ -178,13 +180,13 @@ export default function UserProfile({user_id_main}) {
         .single()
 
       if (error) throw error
-
+  
+      setSuccessful(true)
+      setTimeout(() => 
+        setSuccessful(false)
+      , 3000)
       setAccount({ ...account, ...updatedData })
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-    });
-      alert('Profile updated successfully!')
+      
     } catch (error) {
       console.error('Error updating profile:', error)
       alert('An error occurred while updating the profile')
@@ -257,7 +259,11 @@ export default function UserProfile({user_id_main}) {
                 {errors.bio && <span className="error-message">{errors.bio}</span>}
               </div>
 
-              <input type="submit" name="update" className="updateButton" value="Update" />
+              <input type="submit" 
+              name="update" 
+              className={!successful? "updateButton" : "editSuccessful"} 
+              value={!successful? "Update" : `Successfully Updated! ✅`} 
+              />
             </fieldset>
           </form>
         </div>
