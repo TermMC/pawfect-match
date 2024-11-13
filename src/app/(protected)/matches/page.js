@@ -28,6 +28,7 @@ export default async function Matches() {
                         bodyText={textBody}
                         status={match.status}
                         pet_id={match.pet_id}
+                        type={"match"}
                     />
                 );
             })}
