@@ -1,9 +1,9 @@
 "use client"
-import React, {useState} from "react";
+import React, { useState } from "react";
 import './NavBar.css'
 import Image from "next/image";
 import Link from "next/link";
-import {supabase} from "@/utils/supabase/client";
+import { supabase } from "@/utils/supabase/client";
 
 const Navbar = () => {
     // to change burger classes
@@ -23,16 +23,24 @@ const Navbar = () => {
         setIsMenuClicked(!isMenuClicked)
     }
 
+    function deleteAllCookies() {
+        document.cookie.split(';').forEach(cookie => {
+            const eqPos = cookie.indexOf('=');
+            const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+            document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        });
+    }
     // Logout button
     const HandleLogout = async () => {
         try {
-            const {error} = await supabase.auth.signOut()
+            const { error } = await supabase.auth.signOut()
 
             if (error) {
                 console.log('Error logging out:', error.message);
                 window.alert()
             }
             else {
+                deleteAllCookies()
                 console.log('User logged out');
             }
         }
@@ -48,10 +56,10 @@ const Navbar = () => {
 
 
     return (
-        <div style={{width: '100%'}}>
+        <div style={{ width: '100%' }}>
             <nav>
                 <div>
-                    <Image className="logo" src="/images/Logo.svg" width={200} height={80} alt="Pawfect Match logo"/>
+                    <Image className="logo" src="/images/Logo.svg" width={200} height={80} alt="Pawfect Match logo" />
                 </div>
                 <Link href="/" className="desktop_menu">Home</Link>
                 <Link href="/profile" className="desktop_menu">Profile</Link>

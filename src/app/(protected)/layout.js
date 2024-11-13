@@ -10,15 +10,15 @@ config.autoAddCss = false;
 export default async function RootLayout({ children }) {
     const cookieStore = await cookies();
     const supabase = await createClient(cookieStore);
-    const { data, error } = await supabase.auth.getUser();
-    if (error || !data?.user) {
+    let { data, error } = await supabase.auth.getSession();
+    if (error || !data.session || data?.session?.expires_at < Date.now() / 1000) {
         redirect('/login');
     }
 
     return (
         <>
             <Navbar />
-            <div  style={{ height: 'calc(100% - 5em)', position: 'relative', zIndex: -10}}>{children}</div>
+            <div style={{ height: 'calc(100% - 5em)', position: 'relative', zIndex: -10 }}>{children}</div>
             <footer></footer>
         </>
     );
