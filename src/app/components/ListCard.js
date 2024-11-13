@@ -3,7 +3,7 @@ import './ListCard.css';
 import Link from 'next/link';
 
 export default function ListCard({ image, title, bodyText, status, pet_id, match_id, type }) {
-    const link = type == 'match' ? `/profile/${pet_id}` : `/messages/${match_id}`;
+    const link = type == 'match' ? `/pet-profile/${pet_id}` : `/messages/${match_id}`;
     return (
         <Link href={link} className='list-card'>
             <Image width='50' height='50' src={image} alt={title} className='list-card-image' />
