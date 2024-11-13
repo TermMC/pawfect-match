@@ -7,6 +7,8 @@
     height: 110px;
     filter: drop-shadow(2px 2px 2px #444);
     width: 70vw;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .list-card-image {
@@ -26,9 +28,7 @@
     flex-grow: 1;
     height: 100%;
     border-radius: 0px 5px 5px 0px;
-    text-overflow: ellipsis;
-    text-wrap: nowrap;
-    max-width: 75vw;
+    overflow: hidden;
 }
 
 .list-card-title {

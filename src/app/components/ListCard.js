@@ -12,7 +12,6 @@ export default function ListCard({ image, title, bodyText, status, pet_id, match
                 <p className='list-card-body' dangerouslySetInnerHTML={{ __html: bodyText }}></p>
                 {status && <p className='list-card-status'>Status: {status}</p>}
             </div>
-            <div></div>
         </Link>
     );
 }
