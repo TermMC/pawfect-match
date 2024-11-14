@@ -35,6 +35,11 @@ textarea{
     cursor: pointer;
 }
 
+.editSuccessful{
+  background-color: aquamarine;
+  content: 'Successful';
+}
+
 /* main layout of the page and containers */
 .profilePageHolder{
     position: relative;
