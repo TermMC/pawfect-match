@@ -26,7 +26,7 @@ export default function Login({ setSigningUp }) {
                         Sign up
                     </button>
                 </div>
-                <FontAwesomeIcon icon={faPaw} size='8x' style={{ color: '#002846', position: 'absolute', bottom: 0, right: 0, transform: 'rotate(-45deg)' }} />
+                <FontAwesomeIcon icon={faPaw} size='8x' className="pawLoginIcon" />
             </div>
         </form>
     );
