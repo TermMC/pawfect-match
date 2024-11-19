@@ -2,6 +2,7 @@
 import { supabase } from '@/utils/supabase/client';
 import { useRef, useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+import Link from "next/link";
 import ConversationMessageCard from '@/app/components/ConversationMessageCard';
 import './Conversation.css';
 
