@@ -71,7 +71,7 @@ button {
 .loginButton {
     padding: 1em;
     border: none;
-    background: #7dc9ff;
+    background: #002846;
     border-radius: 5px;
     color: white;
     font-weight: bold;
@@ -80,11 +80,19 @@ button {
 
 .signupButton {
     padding: 1em;
-    border: 1px #7dc9ff solid;
+    border: 1px #002846 solid;
     border-radius: 5px;
-    color: #7dc9ff;
+    color: #002846;
     font-weight: bold;
     background: white;
+}
+
+.pawLoginIcon {
+    color: #7DC9FF;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-45deg);
 }
 
 @media screen and (min-width: 768px) {
