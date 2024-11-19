@@ -71,9 +71,10 @@ export default function Conversation() {
             <div className="conversation-header">
                 <Link className="back-button" href="/messages">←</Link>
                 {conversationPartner && (
-                    <>
+                    <Link href={`/pet-profile/${conversationPartner.pet_id}`}>
                         <img
-                            src={conversationPartner.pets.image}
+                            // src={conversationPartner.pets.image}
+                            src={'https://place.dog/50/50'}
                             alt={`${conversationPartner.pets.name}'s avatar`}
                             className="partner-avatar"
                         />
@@ -82,7 +83,7 @@ export default function Conversation() {
                             <span className="partner-breed">{conversationPartner.pets.breed}</span>
                             <span className="partner-shelter">Shelter: {conversationPartner.pets.shelters.name}</span>
                         </div>
-                    </>
+                    </Link>
                 )}
             </div>
             <div className='conversation-list'>
