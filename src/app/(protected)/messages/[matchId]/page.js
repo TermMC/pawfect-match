@@ -26,7 +26,7 @@ export default function Conversation() {
         const fetchPartnerInfo = async () => {
             const { data, error } = await supabase.from('matches').select(
                 `
-                pet_id, 
+                pet_id,
                 pets (
                 pet_id,
                 name,
