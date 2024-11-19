@@ -49,3 +49,11 @@
     font-size: 0.9em;
     color: #888;
 }
+
+.conversation-link {
+    border: red solid 5px;
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    right: 5px;
+}

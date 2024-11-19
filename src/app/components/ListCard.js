@@ -22,6 +22,7 @@ export default async function ListCard({ image, title, bodyText, status, pet_id,
                 <p className='list-card-body' dangerouslySetInnerHTML={{ __html: bodyText }}></p>
                 {status && <p className='list-card-status'>Status: {status}</p>}
             </div>
+            {type == "match" && <div href={conversationLink} className="conversation-link">{messages.length > 0 ? 'image 1' : 'image 2'}</div>}
         </Link>
     );
 }
