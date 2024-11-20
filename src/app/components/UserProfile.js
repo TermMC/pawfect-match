@@ -13,6 +13,7 @@ import {
   faIdBadge,
   faHourglassStart,
 } from "@fortawesome/free-solid-svg-icons";
+import { checkUsernameAvailability } from "@/utils/accountsFunctions";
 
 export default function UserProfile({ user_id_main }) {
   const EMAIL_REGEX = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
@@ -38,7 +39,7 @@ export default function UserProfile({ user_id_main }) {
     const formData = new FormData(event.target);
     const updatedData = Object.fromEntries(formData);
 
-    const isUsernameAvailable = await checkUsernameAvailability(
+    const isUsernameAvailable = await checkUsernameAvailability(account.username,
       updatedData.username
     );
     if (!isUsernameAvailable) {
@@ -75,22 +76,7 @@ export default function UserProfile({ user_id_main }) {
 
   // Form validation ---------------------------------------------------------------------
 
-  const checkUsernameAvailability = async (username) => {
-    if (username === account.username) {
-      return true; // Username hasn't changed, so it's valid
-    }
 
-    const { data, error } = await supabase
-      .from("account")
-      .select("username")
-      .eq("username", username)
-      .single();
-
-    if (error && error.code === "PGRST116") {
-      return true; // Username is available
-    }
-    return false; // Username is taken
-  };
 
   const validateForm = (data) => {
     let tempErrors = {};
@@ -174,7 +160,7 @@ export default function UserProfile({ user_id_main }) {
         } else if (value.trim().length < 3) {
           tempErrors.username = "Username must be at least 3 characters";
         } else {
-          const isAvailable = await checkUsernameAvailability(value.trim());
+          const isAvailable = await checkUsernameAvailability(account.username, value.trim());
           if (!isAvailable) {
             tempErrors.username = "Username is already taken";
           } else {

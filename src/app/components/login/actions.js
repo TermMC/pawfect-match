@@ -4,13 +4,12 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { createClient } from '@/utils/supabase/server';
+import { checkUsernameAvailability } from "@/utils/accountsFunctions";
 
 export async function login(formData) {
     const cookieStore = await cookies();
     const supabase = await createClient(cookieStore);
 
-    // type-casting here for convenience
-    // in practice, you should validate your inputs
     const data = {
         email: formData.get('email'),
         password: formData.get('password'),
@@ -37,12 +36,15 @@ export async function signup(formData) {
     const cookieStore = await cookies();
     const supabase = await createClient(cookieStore);
 
-    // type-casting here for convenience
-    // in practice, you should validate your inputs
     const email = formData.get('email');
     const password = formData.get('password');
     const signUpData = { email, password };
+    const isUsernameAvailable = await checkUsernameAvailability('', formData.get('username'))
 
+    if (!isUsernameAvailable) {
+        console.error('Sign-up error: Username already taken');
+        redirect('/error?error=1');
+    }
     const { data, error } = await supabase.auth.signUp(signUpData);
 
     if (error) {
