@@ -1,5 +1,6 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 
 export default function ErrorPage() {
     const searchParams = useSearchParams()
@@ -10,5 +11,8 @@ export default function ErrorPage() {
     console.log(errorCode, typeof errorCode, errorMessages[errorCode])
 
     return (
-        <p>{errorMessages[errorCode]} <a href="/login"><strong>Return to login</strong></a></p>)
+        <div>
+            <Suspense><p>{errorMessages[errorCode]}</p></Suspense>
+            <p><a href="/login"><strong>Return to login</strong></a></p>
+        </div>)
 }
