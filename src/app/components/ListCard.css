@@ -8,7 +8,17 @@
     filter: drop-shadow(2px 2px 2px #444);
     width: 70vw;
     overflow: hidden;
-    cursor: pointer;
+    position: relative;
+}
+
+.list-card-main-link {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    width: 100%
 }
 
 .list-card-image {
@@ -41,11 +51,33 @@
     margin: 0 0 2px;
     color: #555;
     text-overflow: ellipsis;
-    text-wrap: nowrap;
-    overflow-x: hidden;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .list-card-status {
     font-size: 0.9em;
     color: #888;
+}
+
+.conversation-link {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    /* height: 90%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: grey solid 1px;
+    z-index: 2;
+    border-radius: 30%;
+    padding: 5px;
+}
+
+.conversation-link img {
+    width: auto;
+    height: 100%;
+    z-index: 3;
 }

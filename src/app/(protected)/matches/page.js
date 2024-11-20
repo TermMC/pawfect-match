@@ -29,6 +29,7 @@ export default async function Matches() {
                         status={match.status}
                         pet_id={match.pet_id}
                         type={"match"}
+                        match_id={match.match_id}
                     />
                 );
             })}
