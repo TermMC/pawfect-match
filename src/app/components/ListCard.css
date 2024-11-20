@@ -6,8 +6,7 @@
     background-color: #515151;
     height: 110px;
     filter: drop-shadow(2px 2px 2px #444);
-    width: 70vw;
-    overflow: hidden;
+    width: 80vw;
     position: relative;
 }
 
@@ -33,11 +32,11 @@
 .list-card-content {
     display: flex;
     flex-direction: column;
-    padding: 2px 0px 2px 15px;
+    padding: 2px 0 2px 15px;
     background-color: #d9d9d9;
     flex-grow: 1;
     height: 100%;
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0 5px 5px 0;
     overflow: hidden;
 }
 
