@@ -129,6 +129,7 @@ main {
     box-shadow: 0 0 15px 0 rgba(0,0,0,0.4);
     padding: 0.3em 0.4em;
     color: darkred;
+    cursor: pointer;
 }
 
 .likeButtonContainer {
@@ -136,6 +137,7 @@ main {
     box-shadow: 0 0 15px 0 rgba(0,0,0,0.4);
     padding: 0.3em;
     color: #7DC9FF;
+    cursor: pointer;
 }
 
 .iconContainer {

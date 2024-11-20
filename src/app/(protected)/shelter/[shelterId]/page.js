@@ -8,13 +8,14 @@ import {
 import Link from "next/link";
 import {cookies} from "next/headers";
 import {createClient} from "@/utils/supabase/server";
+import ShelterMap from "@/app/components/Map";
 
 async function fetchShelter(shelterId) {
     const cookieStore = cookies();
     const supabase = await createClient(cookieStore);
 
     const { data, error } = await supabase.from('shelters')
-        .select('shelter_id, name, bio, verified')
+        .select('shelter_id, name, bio, verified, location')
         .eq('shelter_id', shelterId)
         .single();
 
@@ -53,6 +54,11 @@ export default async function ShelterPage({ params }) {
             </div>
             <Image className="petShelterImage" src="https://place.dog/500/450" width="500" height="450"
                    alt="Pet Image"/>
+            <div className="mapContainer">
+                <h2>Where are we?</h2>
+                <p>We are based in {shelter.location}</p>
+                <ShelterMap shelterLocation={shelter.location} />
+            </div>
         </div>
     );
 }

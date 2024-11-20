@@ -33,6 +33,7 @@ main {
     font-weight: bold;
     font-size: 1rem;
     margin-bottom: 0.5em;
+    padding: 0 2em;
 }
 
 .shelterName h1 {
@@ -60,6 +61,21 @@ main {
     width: 90%;
     border-radius: 5px;
     height: 30%;
+}
+
+.mapContainer {
+    margin: auto;
+    width: 100%;
+    padding: 1em 2em 2em;
+    font-weight: 500;
+}
+
+.mapContainer h2 {
+    font-weight: 600;
+}
+
+.mapContainer p {
+    margin-bottom: 0.5em;
 }
 
 @media screen and (min-width: 700px) {
