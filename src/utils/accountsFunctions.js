@@ -1,9 +1,5 @@
-import { cookies } from 'next/headers';
-import { createClient } from '@/utils/supabase/server';
 
-export const checkUsernameAvailability = async (currentUsername, newUsername) => {
-    const cookieStore = await cookies();
-    const supabase = await createClient(cookieStore);
+export const checkUsernameAvailability = async (supabase, currentUsername, newUsername) => {
     if (newUsername === currentUsername) {
         return true; // Username hasn't changed, so it's valid
     }

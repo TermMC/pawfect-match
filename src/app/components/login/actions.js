@@ -39,11 +39,12 @@ export async function signup(formData) {
     const email = formData.get('email');
     const password = formData.get('password');
     const signUpData = { email, password };
-    const isUsernameAvailable = await checkUsernameAvailability('', formData.get('username'))
+    const isUsernameAvailable = await checkUsernameAvailability(supabase, '', formData.get('username'))
 
     if (!isUsernameAvailable) {
         console.error('Sign-up error: Username already taken');
         redirect('/error?error=1');
+        return;
     }
     const { data, error } = await supabase.auth.signUp(signUpData);
 

@@ -39,7 +39,7 @@ export default function UserProfile({ user_id_main }) {
     const formData = new FormData(event.target);
     const updatedData = Object.fromEntries(formData);
 
-    const isUsernameAvailable = await checkUsernameAvailability(account.username,
+    const isUsernameAvailable = await checkUsernameAvailability(supabase, account.username,
       updatedData.username
     );
     if (!isUsernameAvailable) {
@@ -160,7 +160,7 @@ export default function UserProfile({ user_id_main }) {
         } else if (value.trim().length < 3) {
           tempErrors.username = "Username must be at least 3 characters";
         } else {
-          const isAvailable = await checkUsernameAvailability(account.username, value.trim());
+          const isAvailable = await checkUsernameAvailability(supabase, account.username, value.trim());
           if (!isAvailable) {
             tempErrors.username = "Username is already taken";
           } else {
