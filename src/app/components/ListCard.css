@@ -6,8 +6,7 @@
     background-color: #515151;
     height: 110px;
     filter: drop-shadow(2px 2px 2px #444);
-    width: 70vw;
-    overflow: hidden;
+    width: 80vw;
     position: relative;
 }
 
