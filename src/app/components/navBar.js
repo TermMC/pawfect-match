@@ -50,6 +50,12 @@ const Navbar = () => {
         }
     }
 
+    const HandlePageChange = () => {
+        setBurgerClass("burger-bar unclicked")
+        setMenuClass("menu hidden")
+        setIsMenuClicked(!isMenuClicked)
+    }
+
     async function signOut() {
         const { error } = await supabase.auth.signOut()
     }
@@ -75,10 +81,10 @@ const Navbar = () => {
 
             <div className={menu_class}>
                 <ul className="mobile_menu">
-                    <li><Link href="/">Home</Link></li>
-                    <li><Link href="/profile">Profile</Link></li>
-                    <li><Link href="/messages">Messages</Link></li>
-                    <li><Link href="/matches">Matches</Link></li>
+                    <li><Link onClick={HandlePageChange} href="/">Home</Link></li>
+                    <li><Link onClick={HandlePageChange} href="/profile">Profile</Link></li>
+                    <li><Link onClick={HandlePageChange} href="/messages">Messages</Link></li>
+                    <li><Link onClick={HandlePageChange} href="/matches">Matches</Link></li>
                     <li><Link href="/login" onClick={HandleLogout}>Logout</Link></li>
                 </ul>
             </div>
