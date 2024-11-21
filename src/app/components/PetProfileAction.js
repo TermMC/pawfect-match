@@ -23,8 +23,6 @@ const PetProfileAction = ({pet, userId}) => {
             setShowHeart(true);
             setTimeout(() => setShowHeart(false), 2000);
 
-            console.log('like success', data);
-
             setTimeout(function () {
                 window.location.reload();
             }, 1500);
@@ -48,8 +46,6 @@ const PetProfileAction = ({pet, userId}) => {
 
             setShowCross(true);
             setTimeout(() => setShowCross(false), 2000);
-
-            console.log('dislike success', data);
 
             setTimeout(function () {
                 window.location.reload();

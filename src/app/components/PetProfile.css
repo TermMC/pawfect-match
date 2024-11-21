@@ -33,6 +33,7 @@ main {
     height: 40vh;
     text-align: center;
     position: relative;
+    z-index: -1;
 }
 
 .petImageContainer::before {
