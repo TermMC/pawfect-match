@@ -42,13 +42,7 @@ export default async function PetProfile({ userId }) {
             {availablePet ? (
                 <div key={availablePet.pet_id} className="petProfile">
                     <div className="petImageContainer">
-                        <Image
-                            className="petImage"
-                            src="https://place.dog/500/550"
-                            width="500"
-                            height="550"
-                            alt="Pet Image"
-                        />
+                        <img alt="Image of pet" src="https://place.dog/500/550" />
                     </div>
                     <div className="profileContainer">
                         <div className="headerContainer">
